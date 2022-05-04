@@ -33,11 +33,6 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(TZ=Asia/Seoul date +'%Y%m%d_%H%M')"
-      - uses: microsoft/variable-substitution@v1
-        with:
-          files: "./packages/giftistar-api-nest/package.json"
-        env:
-          build_time: ${{ steps.branch.outputs.branch }}_${{ steps.date.outputs.date }}
 
       - name: Docker meta
         id: docker_meta
