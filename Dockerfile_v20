@@ -1,0 +1,19 @@
+FROM node:20.16.0
+RUN apt-get -y update
+RUN apt install -y cmake
+RUN npm install -g npm
+RUN npm install -g pm2
+RUN npm install -g env-cmd 
+RUN npm install -g @nestjs/cli@10.4.7
+RUN npm install -g typescript@4.7.4
+
+ENV TZ=Asia/Seoul
+RUN apt-get install -y tzdata
+
+RUN pm2 install pm2-logrotate
+RUN pm2 set pm2-logrotate:max_size 101M
+RUN npm install -g ts-node
+RUN pm2 -v
+WORKDIR /home
+
+
