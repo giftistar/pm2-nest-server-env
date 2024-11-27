@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:20-alpine
 RUN apt-get -y update
 RUN apt install -y cmake
 RUN apt-get install -y build-essential
@@ -14,7 +14,7 @@ ENV TZ=Asia/Seoul
 RUN apt-get install -y tzdata
 
 RUN pm2 install pm2-logrotate
-RUN pm2 set pm2-logrotate:max_size 101M
+RUN pm2 set pm2-logrotate:max_size 100M
 RUN npm install -g ts-node
 RUN pm2 -v
 WORKDIR /home
