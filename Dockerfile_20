@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20-bullseye
 RUN apt-get -y update
 RUN apt install -y cmake
 RUN apt-get install -y build-essential
